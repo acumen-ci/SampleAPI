@@ -16,7 +16,7 @@ namespace SampleAPI.Controllers
         [HttpPost("Search")]
         public IEnumerable<Film> Search(SearchOptions options)
         {
-            return filmService.Find(title: options.Title, year: options.Year, exactMatch: true);
+            return filmService.Find(title: options.Title, year: options.Year, exactMatch: options.ExactMatch);
         }
     }
 
@@ -24,5 +24,6 @@ namespace SampleAPI.Controllers
     {
         public string Title { get; set; } = "";
         public int? Year { get; set; }
+        public bool ExactMatch { get; set; } = false;
     }
 }
